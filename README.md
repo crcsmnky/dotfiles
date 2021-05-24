@@ -24,7 +24,6 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 ```
 git clone git@github.com:crcsmnky/dotfiles.git ~/.dotfiles
-
 ```
 
 - Run bootstrap script
