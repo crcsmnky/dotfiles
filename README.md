@@ -20,16 +20,19 @@ xcode-select --install
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-- Setup `$HOME` and `fetch` this repo:
+- Clone this repo
 
 ```
-cd $HOME
-git init
-git remote add origin git@github.com:crcsmnky/dotfiles
-git fetch
-git checkout -f master
+git clone git@github.com:crcsmnky/dotfiles.git ~/.dotfiles
+
+```
+
+- Run bootstrap script
+
+```
+bash $HOME/.dotfiles/bootstrap.sh
 ```
 
 ## todo
 
-- None, at this time
+- automate more of the setup
