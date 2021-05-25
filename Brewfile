@@ -12,6 +12,7 @@ brew "jq"
 brew "tree"
 brew "wget"
 brew "bat"
+brew "svn"
 
 # code
 brew "pyenv"
