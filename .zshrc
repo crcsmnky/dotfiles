@@ -75,6 +75,9 @@ plugins=(git zsh_reload vscode sublime sudo kubectl kube-ps1)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 export PATH=$HOME/Utilities/bin:$HOME/Utilities/homebrew/bin:$PATH
 
@@ -88,7 +91,7 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 
 # function brew() {
 #   chown -R "$(whoami)" "$BREW_PREFIX/bin" "$BREW_PREFIX/etc" "$BREW_PREFIX/sbin" "$BREW_PREFIX/share"
-#   "$BREW_PREFIX/bin/brew" "$@"
+#  "$BREW_PREFIX/bin/brew" "$@"
 # }
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -125,9 +128,7 @@ alias proj="cd $HOME/Projects"
 alias util="cd $HOME/Utilities"
 alias downloads="cd $HOME/Downloads"
 
-if command -v pyenv 1>/dev/null 2>&1; then
-	eval "$(pyenv init -)"
-fi
+eval "$(pyenv init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/parikhs/Utilities/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/parikhs/Utilities/google-cloud-sdk/path.zsh.inc'; fi
@@ -140,5 +141,5 @@ KUBE_PS1_SYMBOL_DEFAULT=☸
 KUBE_PS1_SYMBOL_PADDING=false
 
 PROMPT=$'
-%{$fg[blue]%}%/%{$reset_color%} $(kube_ps1) $(git_prompt_info)$(bzr_prompt_info)%{$fg[white]%}[%T]%{$reset_color%}
+%{$fg[blue]%}%/%{$reset_color%}$(kube_ps1) $(git_prompt_info)$(bzr_prompt_info)%{$fg[white]%}[%T]%{$reset_color%}
 %{$fg_bold[white]%}>%{$reset_color%} '
