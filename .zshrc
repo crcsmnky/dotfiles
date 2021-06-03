@@ -1,5 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/Utilities/bin:$HOME/Utilities/homebrew/bin:$PATH
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/parikhs/.oh-my-zsh"
@@ -75,11 +80,6 @@ plugins=(git zsh_reload vscode sublime sudo kubectl kube-ps1)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
-export PATH=$HOME/Utilities/bin:$HOME/Utilities/homebrew/bin:$PATH
 
 # Run once to reduce spawn shell
 export BREW_PREFIX="$(brew --prefix)"
@@ -138,8 +138,9 @@ if [ -f '/Users/parikhs/Utilities/google-cloud-sdk/completion.zsh.inc' ]; then .
 
 source "/Users/parikhs/Utilities/homebrew/opt/kube-ps1/share/kube-ps1.sh"
 KUBE_PS1_SYMBOL_DEFAULT=☸
-KUBE_PS1_SYMBOL_PADDING=false
+KUBE_PS1_SYMBOL_PADDING=''
+KUBE_PS1_PREFIX=' ('
 
 PROMPT=$'
-%{$fg[blue]%}%/%{$reset_color%}$(kube_ps1) $(git_prompt_info)$(bzr_prompt_info)%{$fg[white]%}[%T]%{$reset_color%}
+%{$fg[blue]%}%~%{$reset_color%}$(kube_ps1) $(git_prompt_info)$(bzr_prompt_info)%{$fg[white]%}[%T]%{$reset_color%}
 %{$fg_bold[white]%}>%{$reset_color%} '
