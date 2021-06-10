@@ -5,6 +5,7 @@ export PATH=$HOME/Utilities/bin:$HOME/Utilities/homebrew/bin:$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/parikhs/.oh-my-zsh"
@@ -127,8 +128,7 @@ alias c="clear"
 alias proj="cd $HOME/Projects"
 alias util="cd $HOME/Utilities"
 alias downloads="cd $HOME/Downloads"
-
-eval "$(pyenv init -)"
+alias work="cd $HOME/Work"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/parikhs/Utilities/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/parikhs/Utilities/google-cloud-sdk/path.zsh.inc'; fi
