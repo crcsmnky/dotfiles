@@ -1,11 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/Utilities/bin:$HOME/Utilities/homebrew/bin:$PATH
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+# export PATH=$HOME/Utilities/bin:$HOME/Utilities/homebrew/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/parikhs/.oh-my-zsh"
@@ -76,7 +71,7 @@ ZSH_THEME="frisk-sandeep"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh_reload vscode sublime sudo kubectl kube-ps1)
+plugins=(git zsh_reload vscode sublime sudo kubectl kube-ps1 pyenv virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -143,4 +138,4 @@ KUBE_PS1_PREFIX=' ('
 
 PROMPT=$'
 %{$fg[blue]%}%~%{$reset_color%}$(kube_ps1) $(git_prompt_info)$(bzr_prompt_info)%{$fg[white]%}[%T]%{$reset_color%}
-%{$fg_bold[white]%}>%{$reset_color%} '
+$(virtualenv_prompt_info) %{$fg_bold[white]%}>%{$reset_color%} '
