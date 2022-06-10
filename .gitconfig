@@ -2,3 +2,5 @@
 	path = ~/.dotfiles/.git-personal.conf
 [includeIf "gitdir:~/Work/"]
 	path = ~/.dotfiles/.git-work.conf
+[core]
+	excludesfile = /Users/parikhs/.gitignore

@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/Utilities/bin:$HOME/Utilities/homebrew/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/parikhs/.oh-my-zsh"
@@ -91,7 +92,7 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 
 # function brew() {
 #   chown -R "$(whoami)" "$BREW_PREFIX/bin" "$BREW_PREFIX/etc" "$BREW_PREFIX/sbin" "$BREW_PREFIX/share"
-#   "$BREW_PREFIX/bin/brew" "$@"
+#  "$BREW_PREFIX/bin/brew" "$@"
 # }
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -137,7 +138,8 @@ fi
 
 source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
 KUBE_PS1_SYMBOL_DEFAULT=☸
-KUBE_PS1_SYMBOL_PADDING=false
+KUBE_PS1_SYMBOL_PADDING=''
+KUBE_PS1_PREFIX=' ('
 
 PROMPT=$'
 %{$fg[blue]%}%/%{$reset_color%} $(kube_ps1) $(git_prompt_info)$(bzr_prompt_info)%{$fg[white]%}[%T]%{$reset_color%}
