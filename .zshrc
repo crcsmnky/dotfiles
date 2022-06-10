@@ -70,16 +70,19 @@ ZSH_THEME="frisk-sandeep"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh_reload vscode sublime sudo kubectl kube-ps1)
+plugins=(git vscode sublime sudo kubectl kube-ps1)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export PATH=$HOME/Utilities/bin:$HOME/Utilities/homebrew/bin:$PATH
+export JAVA_HOME="$(/usr/libexec/java_home)"
+
+export PATH=$JAVA_HOME/bin:$HOME/Utilities/bin:$PATH
 
 # Run once to reduce spawn shell
-export BREW_PREFIX="$(brew --prefix)"
+# export BREW_PREFIX="$(brew --prefix)"
 
 # Homebrew
 export LD_LIBRARY_PATH="$BREW_PREFIX/lib:$LD_LIBRARY_PATH"
@@ -120,25 +123,28 @@ alias ll="ls -al"
 alias q="exit"
 alias c="clear"
 
-# alias work="cd $HOME/Work"
+alias work="cd $HOME/Work"
 alias proj="cd $HOME/Projects"
 alias util="cd $HOME/Utilities"
 alias downloads="cd $HOME/Downloads"
 
 if command -v pyenv 1>/dev/null 2>&1; then
-	eval "$(pyenv init -)"
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/parikhs/Utilities/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/parikhs/Utilities/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/parikhs/Utilities/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/parikhs/Utilities/google-cloud-sdk/completion.zsh.inc'; fi
-
-source "/Users/parikhs/Utilities/homebrew/opt/kube-ps1/share/kube-ps1.sh"
+source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
 KUBE_PS1_SYMBOL_DEFAULT=☸
 KUBE_PS1_SYMBOL_PADDING=false
 
 PROMPT=$'
 %{$fg[blue]%}%/%{$reset_color%} $(kube_ps1) $(git_prompt_info)$(bzr_prompt_info)%{$fg[white]%}[%T]%{$reset_color%}
 %{$fg_bold[white]%}>%{$reset_color%} '
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/parikhs/Utilities/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/parikhs/Utilities/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/parikhs/Utilities/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/parikhs/Utilities/google-cloud-sdk/completion.zsh.inc'; fi
